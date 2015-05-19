@@ -1,0 +1,33 @@
+{
+  "name": "stream-interval",
+  "version": "0.0.1",
+  "description": "setInterval for for functions that return streams",
+  "homepage": "https://github.com/maximilianschmitt/stream-interval",
+  "bugs": "https://github.com/maximilianschmitt/stream-interval/issues",
+  "license": "MIT",
+  "author": {
+    "name": "Maximilian Schmitt",
+    "email": "maximilian.schmitt@googlemail.com",
+    "url": "http://maximilianschmitt.me"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/maximilianschmitt/stream-interval.git"
+  },
+  "main": "./main",
+  "scripts": {
+    "test": "istanbul cover _mocha",
+    "prepublish": "npm test",
+    "coveralls": "cat ./coverage/lcov.info | coveralls"
+  },
+  "dependencies": {
+    "readable-stream": "^1.0.33"
+  },
+  "devDependencies": {
+    "chai": "^2.3.0",
+    "coveralls": "^2.11.2",
+    "istanbul": "^0.3.14",
+    "mocha": "^2.2.5",
+    "through2": "^0.6.5"
+  }
+}
