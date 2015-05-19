@@ -1,6 +1,6 @@
 {
   "name": "stream-interval",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "setInterval for for functions that return streams",
   "homepage": "https://github.com/maximilianschmitt/stream-interval",
   "bugs": "https://github.com/maximilianschmitt/stream-interval/issues",
