@@ -1,7 +1,7 @@
 'use strict';
 
 var expect = require('chai').expect;
-var Readable = require('stream').Readable;
+var Readable = require('readable-stream').Readable;
 var streamInterval = require('../main');
 
 describe('streamInterval', function() {
