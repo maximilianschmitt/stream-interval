@@ -13,7 +13,7 @@ var streamInterval = function(opts, fn, interval) {
     this.stopped = true;
     this.push(null);
   };
-  outStream._read = function() {};
+  outStream._read = function(){};
   scheduleInterval(Date.now());
   
   return outStream;

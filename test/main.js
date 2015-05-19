@@ -54,12 +54,12 @@ describe('streamInterval', function() {
   it('calls the stream factory at most every x milliseconds', function(done) {
     var all = '';
     var si = streamInterval(function() {
-      return new Readable({
-        read: function() {
-          this.push('hello');
-          this.push(null);
-        }
-      });
+      var s = new Readable();
+      s._read = function() {
+        this.push('hello');
+        this.push(null);
+      };
+      return s;
     }, 100);
 
     si.on('data', function(data) {
@@ -79,9 +79,8 @@ describe('streamInterval', function() {
     var si = streamInterval(function() {
       calls++;
 
-      var s = new Readable({
-        read: function(){}
-      });
+      var s = new Readable();
+      s._read = function(){};
 
       setTimeout(function() {
         s.push('hello');
@@ -107,13 +106,11 @@ describe('streamInterval', function() {
 function threeObjects() {
   var i = 0;
   var si = streamInterval({ objectMode: true }, function() {
-    var s = new Readable({
-      objectMode: true,
-      read: function() {
-        this.push({ hello: 'world' });
-        this.push(null);
-      }
-    });
+    var s = new Readable({ objectMode: true });
+    s._read = function() {
+      this.push({ hello: 'world' });
+      this.push(null);
+    };
     if (++i > 3) si.stop();
     return s;
   });
@@ -123,12 +120,11 @@ function threeObjects() {
 function threeHellos() {
   var i = 0;
   var si = streamInterval(function() {
-    var s = new Readable({
-      read: function() {
-        this.push('hello');
-        this.push(null);
-      }
-    });
+    var s = new Readable();
+    s._read = function() {
+      this.push('hello');
+      this.push(null);
+    };
     if (++i > 3) si.stop();
     return s;
   });

@@ -21,7 +21,7 @@
     "coveralls": "cat ./coverage/lcov.info | coveralls"
   },
   "dependencies": {
-    "readable-stream": "^1.0.33"
+    "readable-stream": "^1.1.13"
   },
   "devDependencies": {
     "chai": "^2.3.0",
